@@ -20,3 +20,12 @@ CREATE TABLE "people" (
 
 INSERT INTO "people" ("first_name", "last_name")
   SELECT "first_name", "last_name" FROM "denormalized_people";
+
+
+--Concepts
+
+--1
+UPDATE "people" SET "last_name" = 'INITCAP(last_name)';
+
+
+--2
