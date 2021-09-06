@@ -29,3 +29,14 @@ UPDATE "people" SET "last_name" = 'INITCAP(last_name)';
 
 
 --2
+-- Update the last_name column to be capitalized
+UPDATE "people" SET "last_name" =
+  SUBSTR("last_name", 1, 1) ||
+  LOWER(SUBSTR("last_name", 2));
+
+ALTER TABLE "people" ADD column "date_of_birth" DATE;
+
+UPDATE "people" SET "date_of_birth" =
+    (CURRENT_TIMESTAMP - "born_ago"::INTERVAL)::DATE;
+
+ALTER TABLE "people" DROP COLUMN "born_ago";
